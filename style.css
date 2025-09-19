@@ -2,7 +2,7 @@ ol, ul {
  padding-left: 17px;
 }
 img {
-max-width: 90%;
+max-width: 100%;
 height: auto;
 }
 header {
@@ -431,3 +431,4 @@ body {
         background: #f44336;
         color: white;
     }
+
