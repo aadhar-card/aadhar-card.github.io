@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - Instagram Bio For Boys</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href=style.css>
+  <link rel="icon" type="image/png" href="fevicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="fevicon/favicon.svg" />
+<link rel="shortcut icon" href="fevicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="fevicon/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<link rel="manifest" href="fevicon/site.webmanifest" />
+</head>
+<body>
+  <header>
+      <nav class="navbar">
+              InstagramBio
+
+          <ul class="nav-menu">
+              <li class="nav-item">
+                  <a href="/" class="nav-link active">Home</a>
+              </li>
+            </ul>
+          <div class="hamburger">
+              <i class="fas fa-bars"></i>
+          </div>
+      </nav>
+    </header>
+
+    <div class="container">
+        <section class="terms-section">
+            <div class="terms-header">
+                <h1>Terms and Conditions</h1>
+                <p>Please read these terms carefully before using our service</p>
+            </div>
+
+            <div class="terms-content">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using InstagramBio.co.in (the "Website"), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by these terms, please do not use this Website.</p>
+
+                <h2>2. Service Description</h2>
+                <p>InstagramBio provides users with pre-written Instagram bios that can be copied and used on Instagram profiles. Our service is free to use and does not require user registration.</p>
+
+                <h2>3. User Responsibilities</h2>
+                <p>As a user of this Website, you agree to:</p>
+                <ul>
+                    <li>Use the bios provided for personal, non-commercial purposes only</li>
+                    <li>Not engage in any activity that disrupts or interferes with our Website</li>
+                    <li>Not use our content for any illegal or unauthorized purpose</li>
+                    <li>Comply with all applicable laws and regulations</li>
+                </ul>
+
+                <h2>4. Intellectual Property Rights</h2>
+                <p>The bios provided on our Website are available for personal use. While we don't claim copyright on individual bios, the collection, arrangement, and presentation of all content on this Website is the property of InstagramBio and protected by intellectual property laws.</p>
+
+                <h2>5. Disclaimer of Warranties</h2>
+                <p>The service is provided on an "as is" and "as available" basis. InstagramBio expressly disclaims all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+                <div class="highlight">
+                    <p>We make no warranty that (i) the service will meet your requirements, (ii) the service will be uninterrupted, timely, secure, or error-free, (iii) the results that may be obtained from the use of the service will be accurate or reliable.</p>
+                </div>
+
+                <h2>6. Limitation of Liability</h2>
+                <p>InstagramBio shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+                <ol>
+                    <li>Your access to or use of or inability to access or use the service</li>
+                    <li>Any conduct or content of any third party on the service</li>
+                    <li>Any content obtained from the service</li>
+                    <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+                </ol>
+
+                <h2>7. External Links</h2>
+                <p>Our Website may contain links to third-party websites or services that are not owned or controlled by InstagramBio. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services.</p>
+
+                <h2>8. Changes to Terms</h2>
+                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Website after those revisions become effective, you agree to be bound by the revised terms.</p>
+
+                <h2>9. Governing Law</h2>
+                <p>These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions.</p>
+
+                <h2>10. Contact Us</h2>
+                <div class="contact-info">
+                    <p>If you have any questions about these Terms, please contact us:</p>
+                    <p>Email: support@instagrambio.co.in</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+      <h3>Links</h3>
+      <a href="/">Home</a><br>
+      <a href="aboutus.html">About Us</a><br>
+      <a href="disclaimer.html">Disclaimer</a><br>
+      <a href="termandcondition.html">Term & Condition</a>
+      <p>© 2025 Instagrambio.co.in</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+
+                // Change icon based on menu state
+                const icon = hamburger.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when a link is clicked (useful on mobile)
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

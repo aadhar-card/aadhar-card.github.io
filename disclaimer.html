@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - Instagram Bio For Boys</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href=style.css>
+</head>
+<body>
+  <header>
+      <nav class="navbar">
+              InstagramBio
+
+          <ul class="nav-menu">
+              <li class="nav-item">
+                  <a href="/" class="nav-link active">Home</a>
+              </li>
+            </ul>
+          <div class="hamburger">
+              <i class="fas fa-bars"></i>
+          </div>
+      </nav>
+    </header>
+    <div class="container">
+        <div class="disclaimer-content">
+            <h1>Disclaimer</h1>
+
+            <p>Last updated: January 1, 2025</p>
+
+            <h2>Website Disclaimer for InstagramBio.co.in</h2>
+
+            <p>The information contained on InstagramBio.co.in website (the "Service") is for general information purposes only. InstagramBio assumes no responsibility for errors or omissions in the contents on the Service.</p>
+
+            <div class="highlight">
+                <p>InstagramBio is not affiliated with Instagram, Facebook, or any Instagram entity. This site is not endorsed by or connected to Instagram in any official capacity. All product and company names are trademarks™ or registered® trademarks of their respective holders.</p>
+            </div>
+
+            <h2>External Links Disclaimer</h2>
+
+            <p>The Service may contain links to external websites that are not provided or maintained by or in any way affiliated with InstagramBio. Please note that InstagramBio does not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.</p>
+
+            <h2>Professional Disclaimer</h2>
+
+            <p>The Instagram bio suggestions provided on our website are for entertainment and inspiration purposes only. InstagramBio does not make any warranties about the completeness, reliability, and accuracy of this information. Any action you take upon the information you find on this website is strictly at your own risk. InstagramBio will not be liable for any losses and/or damages in connection with the use of our website.</p>
+
+            <h2>Content Disclaimer</h2>
+
+            <p>All bios provided on our website are suggestions only. We are not responsible for how these bios are used or interpreted by our users. We recommend that you:</p>
+
+            <ul>
+                <li>Ensure your bio complies with Instagram's Terms of Service</li>
+                <li>Do not include any sensitive personal information in your bio</li>
+                <li>Respect copyright and intellectual property rights</li>
+                <li>Do not use offensive, discriminatory, or harmful language</li>
+            </ul>
+
+            <h2>Views Expressed Disclaimer</h2>
+
+            <p>The bios available on our website may contain views and opinions which are those of the authors and do not necessarily reflect the official policy or position of any other author, agency, organization, employer or company, including InstagramBio.</p>
+
+            <h2>No Responsibility Disclaimer</h2>
+
+            <p>In no event shall InstagramBio be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. InstagramBio reserves the right to make additions, deletions, or modification to the contents on the Service at any time without prior notice.</p>
+
+            <h2>Consent</h2>
+
+            <p>By using our website, you hereby consent to our disclaimer and agree to its terms.</p>
+
+            <h2>Update</h2>
+
+            <p>Should we update, amend or make any changes to this document, those changes will be prominently posted here.</p>
+
+            <p>If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at contact@instagrambio.co.in</p>
+        </div>
+    </div>
+
+    <footer>
+      <h3>Links</h3>
+      <a href="/">Home</a><br>
+      <a href="aboutus.html">About Us</a><br>
+      <a href="disclaimer.html">Disclaimer</a><br>
+      <a href="termandcondition.html">Term & Condition</a>
+      <p>© 2025 Instagrambio.co.in</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+
+                const icon = hamburger.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
