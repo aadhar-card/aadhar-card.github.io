@@ -412,119 +412,133 @@
     </div>
 
     <script>
-        // Copy to clipboard functionality with fallback
-        document.addEventListener('DOMContentLoaded', function() {
-            const copyButtons = document.querySelectorAll('.copy-btn');
+       // Copy to clipboard functionality with fallback
+document.addEventListener('DOMContentLoaded', function() {
+    const copyButtons = document.querySelectorAll('.copy-btn');
 
-            copyButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const bioText = this.getAttribute('data-bio').replace(/&#10;/g, '\n');
+    copyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const bioText = this.getAttribute('data-bio').replace(/&#10;/g, '\n');
 
-                    // Try using the modern Clipboard API first
-                    if (navigator.clipboard && window.isSecureContext) {
-                        navigator.clipboard.writeText(bioText).then(() => {
-                            showToast();
-                            showButtonFeedback(this);
-                        }).catch(err => {
-                            // If Clipboard API fails, use fallback
-                            showFallback(bioText);
-                        });
-                    } else {
-                        // Use fallback for insecure contexts or older browsers
-                        showFallback(bioText);
-                    }
+            // Try using the modern Clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(bioText).then(() => {
+                    showToast();
+                    showButtonFeedback(this);
+                }).catch(err => {
+                    // If Clipboard API fails, use fallback
+                    showFallback(bioText);
                 });
-            });
+            } else {
+                // Use fallback for insecure contexts or older browsers
+                showFallback(bioText);
+            }
+        });
+    });
 
-            // Filter functionality
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const bioCards = document.querySelectorAll('.bio-card');
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const bioCards = document.querySelectorAll('.bio-card');
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
 
-                    const filter = button.getAttribute('data-filter');
+            const filter = button.getAttribute('data-filter');
 
-                    bioCards.forEach(card => {
-                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-
-            // Search functionality
-            const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', () => {
-                const searchText = searchInput.value.toLowerCase();
-
-                bioCards.forEach(card => {
-                    const bioText = card.querySelector('.bio-content').textContent.toLowerCase();
-                    if (bioText.includes(searchText)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+            bioCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         });
+    });
 
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
+    // Mobile menu functionality
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+
+        // Change icon based on menu state
+        const icon = hamburger.querySelector('i');
+        if (navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
         }
+    });
 
-        function showButtonFeedback(button) {
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            button.classList.add('copied');
+    // Close menu when a link is clicked (useful on mobile)
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+    });
+});
 
-            setTimeout(() => {
-                button.innerHTML = originalText;
-                button.classList.remove('copied');
-            }, 2000);
-        }
+function showToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
 
-        function showFallback(text) {
-            const fallback = document.getElementById('fallbackCopy');
-            const textarea = document.getElementById('fallbackTextarea');
-            textarea.value = text;
-            textarea.select();
-            fallback.classList.add('show');
+function showButtonFeedback(button) {
+    const originalText = button.innerHTML;
+    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+    button.classList.add('copied');
 
-            // Show alert about manual copy
-            const alert = document.getElementById('copyAlert');
-            alert.classList.add('show');
-            setTimeout(() => {
-                alert.classList.remove('show');
-            }, 3000);
-        }
+    setTimeout(() => {
+        button.innerHTML = originalText;
+        button.classList.remove('copied');
+    }, 2000);
+}
 
-        function copyFromFallback() {
-            const textarea = document.getElementById('fallbackTextarea');
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                showToast();
-                closeFallback();
-            } catch (err) {
-                alert('Please use Ctrl+C to copy the text');
-            }
-        }
+function showFallback(text) {
+    const fallback = document.getElementById('fallbackCopy');
+    const textarea = document.getElementById('fallbackTextarea');
+    textarea.value = text;
+    textarea.select();
+    fallback.classList.add('show');
 
-        function closeFallback() {
-            const fallback = document.getElementById('fallbackCopy');
-            fallback.classList.remove('show');
-        }
+    // Show alert about manual copy
+    const alert = document.getElementById('copyAlert');
+    alert.classList.add('show');
+    setTimeout(() => {
+        alert.classList.remove('show');
+    }, 3000);
+}
+
+function copyFromFallback() {
+    const textarea = document.getElementById('fallbackTextarea');
+    textarea.select();
+    try {
+        document.execCommand('copy');
+        showToast();
+        closeFallback();
+    } catch (err) {
+        alert('Please use Ctrl+C to copy the text');
+    }
+}
+
+function closeFallback() {
+    const fallback = document.getElementById('fallbackCopy');
+    fallback.classList.remove('show');
+}
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -581,6 +595,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
